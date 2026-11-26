@@ -205,7 +205,8 @@ function spawnShape() {
 
 /* ─── TYPING EFFECT (HIỆU ỨNG GÕ CHỮ) ─── */
 const MSG = 'Thân gửi Hoài Anh,\n\nTương lai sau này có như thế nào, hãy luôn trở thành người mà em mong muốn, yêu thương bản thân, làm nhiều điều mình muốn và hãy sống thật vui vẻ, hạnh phúc.\n\nChúc mừng sinh nhật tuổi mới rực rỡ, vui tươi nhe. 🎂✨';
-let tIdx = 0, tDone = false; isTyping = false;
+const MSG_CHARS = Array.from(MSG);
+let tIdx = 0, tDone = false, isTyping = false;
 
 function startTyping() {
   if (tDone || isTyping) return; // Nếu đã gõ xong HOẶC đang gõ thì không chạy nữa
@@ -216,12 +217,12 @@ function startTyping() {
   curChar.className = 'cursor'; el.appendChild(curChar);
 
   function tick() {
-    if (tIdx >= MSG.length) { 
+    if (tIdx >= MSG_CHARS.length) { 
       tDone = true; 
       isTyping = false; // Đánh dấu đã gõ xong hoàn toàn
       return; 
     }
-    const ch = MSG[tIdx++];
+    const ch = MSG_CHARS[tIdx++];
     if (ch === '\n') el.insertBefore(document.createElement('br'), curChar);
     else el.insertBefore(document.createTextNode(ch), curChar);
     setTimeout(tick, ch === ',' || ch === '.' || ch === '!' ? 125 : 40);
