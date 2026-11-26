@@ -376,12 +376,10 @@ document.getElementById('start-btn').addEventListener('click', () => {
 
   reveal.classList.add('open-gift');
   
-  // Nhúng nhạc YouTube (autoplay cần user gesture)
-  const fr = document.createElement('iframe');
-  fr.src = 'https://www.youtube.com/embed/h53q6iIORhw?autoplay=1&loop=1&playlist=h53q6iIORhw&controls=0&mute=0&enablejsapi=1';
-  fr.allow = 'autoplay; encrypted-media';
-  fr.width = '1'; fr.height = '1';
-  document.getElementById('yt-wrap').appendChild(fr);
+  // Play local background music (started inside a user gesture to satisfy autoplay policy)
+  const bgMusic = document.getElementById('bg-music');
+  bgMusic.volume = 0.8;
+  bgMusic.play().catch(err => console.warn('Audio playback failed:', err));
 
   setTimeout(() => {
     reveal.classList.add('zoom-in');

@@ -495,17 +495,6 @@ html, body {
   50% { transform: scale(1.18) rotate(6deg); } 
 }
 
-/* Hidden YT */
-#yt-wrap { 
-  position: fixed; 
-  top: -9999px; 
-  left: -9999px; 
-  width: 1px; 
-  height: 1px; 
-  overflow: hidden; 
-  opacity: 0; 
-}
-
 @keyframes popInBounce {
   0% {
     opacity: 0;
