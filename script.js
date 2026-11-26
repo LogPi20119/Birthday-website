@@ -371,6 +371,30 @@ document.addEventListener('touchend', e => {
   if (dx < -50) goTo(curIdx + 1, 1); if (dx > 50) goTo(curIdx - 1, -1);
 }, { passive: true });
 
+/* ─── BACKGROUND MUSIC CONTROL ─── */
+const bgMusic = document.getElementById('bg-music');
+let musicStarted = false; // becomes true only after the user opens the gift
+
+function pauseMusic() {
+  if (musicStarted && !bgMusic.paused) bgMusic.pause();
+}
+
+function resumeMusic() {
+  if (musicStarted && bgMusic.paused) {
+    bgMusic.play().catch(err => console.warn('Audio resume failed:', err));
+  }
+}
+
+// Fires when the tab is switched, the app is minimized, or the screen is locked
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) pauseMusic();
+  else resumeMusic();
+});
+
+// Extra safety net for iOS Safari, which may not always fire visibilitychange
+window.addEventListener('pagehide', pauseMusic);
+window.addEventListener('pageshow', resumeMusic);
+
 /* ─── START EVENT ─── */
 document.getElementById('start-btn').addEventListener('click', () => {
   const reveal = document.getElementById('reveal');
@@ -378,9 +402,10 @@ document.getElementById('start-btn').addEventListener('click', () => {
   reveal.classList.add('open-gift');
   
   // Play local background music (started inside a user gesture to satisfy autoplay policy)
-  const bgMusic = document.getElementById('bg-music');
   bgMusic.volume = 0.8;
-  bgMusic.play().catch(err => console.warn('Audio playback failed:', err));
+  bgMusic.play()
+    .then(() => { musicStarted = true; })
+    .catch(err => console.warn('Audio playback failed:', err));
 
   setTimeout(() => {
     reveal.classList.add('zoom-in');
