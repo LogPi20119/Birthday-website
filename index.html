@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Happy Birthday Hoài Anh!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="fx-canvas"></canvas>
+  <div id="shape-layer"></div>
+  <div id="yt-wrap"></div>
+  <div id="music-ind">🎵</div>
+  <div id="hint">1 / 4</div>
+
+  <div id="reveal">
+    <div class="gift-box">
+        <svg class="gift-svg" viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg" width="150" height="175">
+            <!-- Thân hộp -->
+            <rect x="5" y="50" width="110" height="85" rx="6" fill="#e75480" stroke="#c23b6a" stroke-width="2"/>
+            <rect x="50" y="50" width="20" height="85" fill="#f9a8c9"/>
+            <rect x="5" y="78" width="110" height="6" fill="#f9a8c9"/>
+
+            <!-- Nắp hộp (group riêng để animate) -->
+            <g class="gift-lid">
+            <rect x="3" y="32" width="114" height="22" rx="5" fill="#d63a6e" stroke="#c23b6a" stroke-width="2"/>
+            <rect x="50" y="32" width="20" height="22" fill="#f48fb1"/>
+            <!-- Nơ -->
+            <ellipse cx="60" cy="20" rx="24" ry="13" fill="#e75480" stroke="#c23b6a" stroke-width="1.5"/>
+            <ellipse cx="60" cy="20" rx="11" ry="7" fill="#f48fb1"/>
+            <circle cx="60" cy="20" r="5" fill="#d63a6e"/>
+            </g>
+        </svg>
+    </div>
+    <div class="rv-text">Có một món quà đặc biệt<br>dành cho em!</div>
+    <button class="rv-btn" id="start-btn">🎀 Mở quà nào! 🎀</button>
+  </div>
+
+  <div id="sw">
+    <section class="slide active">
+      <div class="card">
+        <span class="s1-sparkle">✨ 🌸 🎂 🌸 ✨</span>
+        <h1 class="s1-hbd">Happy Birthday!</h1>
+        <div class="photo-book" aria-label="Album ảnh kỷ niệm">
+          <button class="book-page active" type="button" aria-label="Trang ảnh 1">
+            <img src="Images/641624777_896696789822872_5791059602516187384_n.jpg" alt="Hoài Anh">
+            <span class="photo-caption">Happy Birthday! 🎂</span>
+          </button>
+          <button class="book-page" type="button" aria-label="Trang ảnh 2">
+            <img src="Images/704697671_966217379537479_6890755400979233273_n.jpg" alt="Hoài Anh">
+          </button>
+          <button class="book-page" type="button" aria-label="Trang ảnh 3">
+            <img src="Images/749269424_1012470554912161_1289655003141939454_n.jpg" alt="Hoài Anh">
+          </button>
+          <button class="book-page" type="button" aria-label="Trang ảnh 4">
+            <img src="Images/897811561_1115868914572324_8010589105289035450_n.jpg" alt="Hoài Anh">
+          </button>
+          <button class="book-page" type="button" aria-label="Trang ảnh 5">
+            <img src="Images/920642843_1126305246862024_3311171435799499960_n.jpg" alt="Hoài Anh">
+          </button>
+        </div>
+        <p class="s1-sub">Chúc mừng sinh nhật 🎉</p>
+        <div class="birthday-date" aria-label="Ngày 27 tháng 11">📅 <span>27/11</span></div>
+        <div class="name-box">
+          <p class="lbl" style="margin-bottom:8px">🎀 Thân gửi</p>
+          <p class="name">Phùng Duy Hoài Anh</p>
+        </div>
+        <div class="icon-row">🌸 🦋 💖 🌙 ⭐</div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="card">
+        <p class="lbl">💌 Lời chúc từ đại ka siêu đẹp trai</p>
+        <div class="s2-icon">💌</div>
+        <div id="msg-text"></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="card">
+        <p class="lbl">🌈 Những điều tốt đẹp gửi đến Hoài Anh</p>
+        <div class="wish-grid">
+          <div class="wi"><span>💪</span><span class="wi-lbl">Sức khỏe</span></div>
+          <div class="wi"><span>😊</span><span class="wi-lbl">Hạnh phúc</span></div>
+          <div class="wi"><span>💖</span><span class="wi-lbl">Tình yêu</span></div>
+          <div class="wi"><span>🏆</span><span class="wi-lbl">Thành công</span></div>
+          <div class="wi"><span>🍀</span><span class="wi-lbl">May mắn</span></div>
+          <div class="wi"><span>🌟</span><span class="wi-lbl">Ước mơ</span></div>
+          <div class="wi"><span>🕊️</span><span class="wi-lbl">Bình yên</span></div>
+          <div class="wi"><span>🎉</span><span class="wi-lbl">Vui vẻ</span></div>
+          <div class="wi"><span>🥰</span><span class="wi-lbl">Yêu bản thân</span></div>
+          <div class="wi"><span>🌈</span><span class="wi-lbl">Tươi sáng</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="card">
+        <span class="s4-cake">🎂</span>
+        <p class="s4-title">Chúc mừng sinh nhật!</p>
+        <p class="s4-msg">
+          Tuổi mới thật rực rỡ, vui tươi<br>và tràn đầy yêu thương 💖<br><br>
+          Hãy luôn là phiên bản tốt nhất<br>của chính mình nhé, Hoài Anh! 🌸
+        </p>
+        <p class="s4-foot">Made with 💖 · Always 14 🎵</p>
+      </div>
+    </section>
+  </div>
+
+  <nav id="nav">
+    <button class="nav-arr" id="prev" disabled>&#8249;</button>
+    <div id="dots">
+      <div class="dot on" data-i="0"></div>
+      <div class="dot"    data-i="1"></div>
+      <div class="dot"    data-i="2"></div>
+      <div class="dot"    data-i="3"></div>
+    </div>
+    <button class="nav-arr" id="next">&#8250;</button>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>
